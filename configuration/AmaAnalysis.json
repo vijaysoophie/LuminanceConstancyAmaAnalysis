@@ -21,9 +21,9 @@
 		"pathPlacement": "append",
 		"subfolder": "",
 		"toolboxRoot": "",
-		"type": "include",
+		"type": "git",
 		"update": "",
-		"url": ""
+		"url": "https:\/\/bitbucket.org\/burgelab\/burgelabtoolbox.git"
 	},
     {
 		"flavor": "",

@@ -56,9 +56,11 @@ end
 %
 % This will need to be locally configured.
 inputBaseDir = fullfile(baseDir,theProject,'inputs');
-
 outputBaseDir = fullfile(baseDir,theProject,'outputs');
+resultsBaseDir = fullfile(baseDir,theProject,'results');
 
 % Set the preferences
-setpref(theProject,'outputBaseDir',outputBaseDir);
 setpref(theProject,'inputBaseDir',inputBaseDir);
+setpref(theProject,'outputBaseDir',outputBaseDir);
+setpref(theProject,'resultsBaseDir',resultsBaseDir);
+
