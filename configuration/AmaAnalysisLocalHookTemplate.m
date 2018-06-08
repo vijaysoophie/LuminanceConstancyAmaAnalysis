@@ -36,7 +36,7 @@ switch (sysInfo.localHostName)
  
     case 'stingray'
         % Vijay's desktop
-        baseDir = fullfile(filesep,'Volumes','OWSHD','Dropbox (Aguirre-Brainard Lab)');
+        baseDir = fullfile(filesep,'Volumes','OWSHD','Dropbox (Aguirre-Brainard Lab)','IBIO_analysis');
 
     case 'jburge-ogle'
         % Vijay's desktop
