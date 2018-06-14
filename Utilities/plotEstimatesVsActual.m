@@ -1,5 +1,22 @@
 function plotEstimatesVsActual(ConditionNumber,NImageInTrainingSet)
+%plotEstimatesVsActual(ConditionNumber,NImageInTrainingSet)
+%
+% Example: plotEstimatesVsActual(1,900)
+% 
+% This function plots the actual v/s estimated luminance plot and the 
+% filter response to the first two ama receptive fields.
+% 
+% Input:
+%     ConditionNumber: Condition number to be analyzed (scalar)
+%     NImageInTrainingSet: Number of images in the training set.
+%
+% Output: NONE
+%   The figures are saved in the AmaAnalysis/results folder.
+%
+% VS wrote this Jun 14 2018
+%
 
+%%
 % Get the output file
 pathToOutputFile = fullfile(getpref('AmaAnalysis','outputBaseDir'), ...
     ['Condition',num2str(ConditionNumber)],['outputStruct_NTrainingSet',num2str(NImageInTrainingSet),'.mat']);

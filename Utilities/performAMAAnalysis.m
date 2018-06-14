@@ -1,20 +1,27 @@
 function performAMAAnalysis(ConditionNumber, varargin)
-%outputStruct = performAMAAnalysis('/Users/vijaysingh_local/Desktop/codesAndData/Color/analysisForPaper/data/Condition1/stimulusAMA.mat', 6);
+%performAMAAnalysis(ConditionNumber, varargin)
+%       
+% performAMAAnalysis(1);
 %
 % Uses: This function performs AMA analysis for a dataset given the
 %       condition number. We also perform the linear analysis.
 %
 % Input:
-%     ConditionNumber: Condition number to be analyzed
+%     ConditionNumber: Condition number to be analyzed (scalar)
 %
 % Varargin params
-%     nFilters : Number of filters that are required
-%     nFSet    : Number of filters per set to be learnt
+%     nFilters : Number of filters that are required (positive integer)
+%     nFSet    : Number of filters per set to be learnt (positive integer)
 %     fractionOfImagesInTrainingSet    : fraction of images to be used in
-%               the training set
+%               the training set (real)
 %     bGPU     : Logical to specify the use of GPU for AMA analysis
+%               (boolean) default 0. Set it to 1 if GPU is available and
+%               is configured to be used for AMA.
 %
-% Output:
+% Output: NONE
+%   The output struct will be saved in the AmaAnalysis/outputs folder in
+%   the corresponding condition folder.
+%
 %     outputStruct: Struct with the results. The struct contains the
 %           fields isomerization and contrast which give results for
 %           isomerization and contrast based calculations. Each field
@@ -33,14 +40,16 @@ function performAMAAnalysis(ConditionNumber, varargin)
 %                   target object luminance level in the images.
 %           linearTestEstimates: luminance estimates obtained using linear
 %                   model on the center pixel.
-
+%
+% VS wrote this Jun 14 2018
+%
 %%
 % Parse the inputs
 parser = inputParser();
 parser.addParameter('nFilters', 6, @isnumeric);
 parser.addParameter('nFSet', 1, @isnumeric);
 parser.addParameter('fractionOfImagesInTrainingSet', 0.9, @isnumeric);
-parser.addParameter('bGPU', 1, @islogical);
+parser.addParameter('bGPU', 0, @islogical);
 
 parser.parse(varargin{:});
 nFilters = parser.Results.nFilters;

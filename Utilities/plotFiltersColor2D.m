@@ -1,14 +1,18 @@
 function plotFiltersColor2D(f,fSmp,overallTitle,bsmoothing)
-
-% function plotFilters_Defocus(f,fSmp,figh)
+%plotFiltersColor2D(f,fSmp,overallTitle,bsmoothing)
 %
-%   example call: plotFilters_Defocus(f)
+%   example call: plotFiltersColor2D(f,[],[],1)
 %
-% plot filters for defocus estimation
+% Uses: This function plot two filters given in the matrix f.
 %
+% Input:
 % f:          filter weights
 % fSmp:       values at which filter weights are sampled
 % figh:       figure handle
+% bsmoothing: boolean to specify linear interpolation for smooth figures
+%
+% Output: None
+% A plot is generated on the screen.
 
 if ~exist('fSmp','var') || isempty(fSmp) fSmp = [0:(size(f,1)/2-1)]; fSmp = fSmp-max(fSmp)/2-1;  end
 
