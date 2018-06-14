@@ -11,7 +11,7 @@ https://github.com/ToolboxHub/ToolboxToolbox
 
 This document describes the steps to analyze data in the paper mentioned above.
 
-1. Download the repository AmaAnalysis and put it in you projects folder.
+1. Download the repository AmaAnalysis and put it in your projects folder.
 
 2. Go to the configuration file AmaAnalysisLocalHookTemplate and set up 
 the configuration for your computer as you like. The part that you need to 
