@@ -18,7 +18,7 @@ if ~exist('fSmp','var') || isempty(fSmp) fSmp = [0:(size(f,1)/2-1)]; fSmp = fSmp
 
 % HANDLE FIGURE
 figh = figure;
-set(gcf,'position',[991 973 500 300]);
+set(gcf,'position',[991 973 500 450]);
 
 % PLOT
 for i = 1:size(f,2)
@@ -41,12 +41,16 @@ for i = 1:size(f,2)
 %         subplot(size(fSmooth,2),3,(i-1)*3+j);
         if (j<3)
             if i == 1
+                axes(figh,'units','pixels','position',[(j-1)*120+60 320 100 100]);
+            elseif i == 2
                 axes(figh,'units','pixels','position',[(j-1)*120+60 180 100 100]);
             else
                 axes(figh,'units','pixels','position',[(j-1)*120+60 40 100 100]);
             end
         else
             if i == 1
+                axes(figh,'units','pixels','position',[(j-1)*120+60 320 150 100]);
+            elseif i == 2
                 axes(figh,'units','pixels','position',[(j-1)*120+60 180 150 100]);
             else
                 axes(figh,'units','pixels','position',[(j-1)*120+60 40 150 100]);
@@ -61,6 +65,7 @@ for i = 1:size(f,2)
         caxis([-.04 .04]); colormap(cmapBWR);    
         if (i==1 & j==3) colorbar; set(gca,'Fontsize',15); end
         if (i==2 & j==3) colorbar; set(gca,'Fontsize',15); end
+        if (i==3 & j==3) colorbar; set(gca,'Fontsize',15); end
 
         switch j
             case 1

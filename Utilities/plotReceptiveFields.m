@@ -35,11 +35,11 @@ end
 
 for input = 1:2
     if input == 1
-        plotFiltersColor2D(outputStruct.isomerization.AMA.f(:,1:2),[],[],1);
+        plotFiltersColor2D(outputStruct.isomerization.AMA.f(:,1:3),[],[],1);
         pathToResultsfile = fullfile(pathToIsomerizationFolder,'ReceptiveFields.pdf');
         save2pdf(pathToResultsfile,gcf,600);
     else
-        plotFiltersColor2D(outputStruct.contrast.AMA.f(:,1:2),[],[],1);
+        plotFiltersColor2D(outputStruct.contrast.AMA.f(:,1:3),[],[],1);
         pathToResultsfile = fullfile(pathToContrastFolder,'ReceptiveFields.pdf');
         save2pdf(pathToResultsfile,gcf,600);
     end
