@@ -1,7 +1,7 @@
-function AmaAnalysisLocalHook
+function LuminanceConstancyAmaAnalysisLocalHook
 % AmaAnalysisLocalHook
 %
-% Configure things for working on the AmaAnalysisLocalHook project.
+% Configure things for working on the LuminanceConstancyAmaAnalysisLocalHook project.
 %
 % For use with the ToolboxToolbox.  If you copy this into your
 % ToolboxToolbox localToolboxHooks directory (by defalut,
@@ -13,7 +13,7 @@ function AmaAnalysisLocalHook
 % to match what is true on your computer.
 
 %% Say hello
-theProject = 'AmaAnalysis';
+theProject = 'LuminanceConstancyAmaAnalysis';
 fprintf('Running %s local hook\n',theProject);
 
 %% Remove old preferences

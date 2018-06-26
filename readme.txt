@@ -11,19 +11,19 @@ https://github.com/ToolboxHub/ToolboxToolbox
 
 This document describes the steps to analyze data in the paper mentioned above.
 
-1. Download the repository AmaAnalysis and put it in your projects folder.
+1. Download the repository LuminanceConstancyAmaAnalysis and put it in your projects folder.
 
-2. Go to the configuration file AmaAnalysisLocalHookTemplate and set up 
+2. Go to the configuration file LuminanceConstancyAmaAnalysisLocalHookTemplate and set up 
 the configuration for your computer as you like. The part that you need to 
 modify are in line 31-53. If not modified, the paths are chosen as per 
 Brainard lab conventions.
 
 3. Download the data and save it in the inputs folder of your newly created 
-AmaAnalysis/inputs folder. This folder is different from the AmaAnalysis 
+LuminanceConstancyAmaAnalysis/inputs folder. This folder is different from the LuminanceConstancyAmaAnalysis 
 folder in the project folder that has the matlab analysis code.
 
 4. In matlab do: 
-tbUseProject('AmaAnalysis','reset','full');
+tbUseProject('LuminanceConstancyAmaAnalysis','reset','full');
 
 5. To run the AMA analysis for condition 1 do:
 performAMAAnalysis(1,'bGPU',false);
@@ -31,7 +31,7 @@ performAMAAnalysis(1,'bGPU',false);
 This would perform the analysis on Condition 1. 
 The defaults condition will learn 6 filters in sets of 1 filter (greedy algorithm).
 To learn about the parameters see documentation of performAMAAnalysis.
-The output will be saved in AmaAnalysis/outputs in the folder Condition1.
+The output will be saved in LuminanceConstancyAmaAnalysis/outputs in the folder Condition1.
 
 6. Visualize results of the analysis.
     a. To visualize the first two AMA filters do 
@@ -42,7 +42,7 @@ The output will be saved in AmaAnalysis/outputs in the folder Condition1.
     The second inout parameter is the number of images used in training set.
 
     Output:
-    Figure will be saved in AmaAnalysis/results in the folder Condition 1
+    Figure will be saved in LuminanceConstancyAmaAnalysis/results in the folder Condition 1
 
     b. To visualize the filter response and compare the estimated luminance 
         v/s actual luminance do:
@@ -50,7 +50,7 @@ The output will be saved in AmaAnalysis/outputs in the folder Condition1.
     plotEstimatesVsActual(1,900);    
 
     Output:
-    Figure will be saved in AmaAnalysis/results in the folder Condition 1
+    Figure will be saved in LuminanceConstancyAmaAnalysis/results in the folder Condition 1
 
     %%% NOTE FOR CONDITION 3 %%%
 

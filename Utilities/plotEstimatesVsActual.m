@@ -11,14 +11,14 @@ function plotEstimatesVsActual(ConditionNumber,NImageInTrainingSet)
 %     NImageInTrainingSet: Number of images in the training set.
 %
 % Output: NONE
-%   The figures are saved in the AmaAnalysis/results folder.
+%   The figures are saved in the LuminanceConstancyAmaAnalysis/results folder.
 %
 % VS wrote this Jun 14 2018
 %
 
 %%
 % Get the output file
-pathToOutputFile = fullfile(getpref('AmaAnalysis','outputBaseDir'), ...
+pathToOutputFile = fullfile(getpref('LuminanceConstancyAmaAnalysis','outputBaseDir'), ...
     ['Condition',num2str(ConditionNumber)],['outputStruct_NTrainingSet',num2str(NImageInTrainingSet),'.mat']);
 
 % load the files containing the estimates
@@ -83,11 +83,11 @@ for input = 1:2
     legend([lLinear, lAMA],...
         {'Linear Model','AMA'}, 'Location','southeast','FontSize',20);
    
-    pathToIsomerizationFolder = fullfile(getpref('AmaAnalysis','resultsBaseDir'),['Condition',num2str(ConditionNumber)],'isomerization');
+    pathToIsomerizationFolder = fullfile(getpref('LuminanceConstancyAmaAnalysis','resultsBaseDir'),['Condition',num2str(ConditionNumber)],'isomerization');
     if (~exist(pathToIsomerizationFolder,'dir'))
         mkdir(pathToIsomerizationFolder);
     end
-    pathToContrastFolder = fullfile(getpref('AmaAnalysis','resultsBaseDir'),['Condition',num2str(ConditionNumber)],'contrast');
+    pathToContrastFolder = fullfile(getpref('LuminanceConstancyAmaAnalysis','resultsBaseDir'),['Condition',num2str(ConditionNumber)],'contrast');
     if (~exist(pathToContrastFolder,'dir'))
         mkdir(pathToContrastFolder);
     end

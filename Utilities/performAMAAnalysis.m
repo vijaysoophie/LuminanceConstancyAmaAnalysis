@@ -19,7 +19,7 @@ function performAMAAnalysis(ConditionNumber, varargin)
 %               is configured to be used for AMA.
 %
 % Output: NONE
-%   The output struct will be saved in the AmaAnalysis/outputs folder in
+%   The output struct will be saved in the LuminanceConstancyAmaAnalysis/outputs folder in
 %   the corresponding condition folder.
 %
 %     outputStruct: Struct with the results. The struct contains the
@@ -58,7 +58,7 @@ nFSet = parser.Results.nFSet;
 bGPU = parser.Results.bGPU;
 
 % Get the input file
-pathToFileIsomerizationFile = fullfile(getpref('AmaAnalysis','inputBaseDir'), ...
+pathToFileIsomerizationFile = fullfile(getpref('LuminanceConstancyAmaAnalysis','inputBaseDir'), ...
     ['Condition',num2str(ConditionNumber)],'stimulusAMA.mat');
 inputStruct = load(pathToFileIsomerizationFile);
 
@@ -188,7 +188,7 @@ for input = 1:2
 end
 
 %% Store the resulting struct
-pathToOutputFolder = fullfile(getpref('AmaAnalysis','outputBaseDir'),['Condition',num2str(ConditionNumber)]);
+pathToOutputFolder = fullfile(getpref('LuminanceConstancyAmaAnalysis','outputBaseDir'),['Condition',num2str(ConditionNumber)]);
 if (~exist(pathToOutputFolder))
     mkdir(pathToOutputFolder);
 end

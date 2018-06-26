@@ -29,13 +29,13 @@
 		"flavor": "",
 		"hook": "",
 		"importance": "",
-		"localHookTemplate": "configuration/AmaAnalysisLocalHookTemplate.m",
-		"name": "AmaAnalysis",
+		"localHookTemplate": "configuration/LuminanceConstancyAmaAnalysisLocalHookTemplate.m",
+		"name": "LuminanceConstancyAmaAnalysis",
 		"pathPlacement": "append",
 		"subfolder": "",
 		"toolboxRoot": "",
 		"type": "git",
 		"update": "",
-		"url": "https:\/\/github.com\/vijaysoophie\/AmaAnalysis"
+		"url": "https:\/\/github.com\/vijaysoophie\/LuminanceConstancyAmaAnalysis"
 	}
 ]
