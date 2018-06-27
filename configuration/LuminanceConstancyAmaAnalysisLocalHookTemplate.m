@@ -32,7 +32,7 @@ sysInfo = GetComputerInfo();
 switch (sysInfo.localHostName)
     case 'eagleray'
         % DHB's desktop
-        baseDir = fullfile(filesep,'Volumes','Users1','Dropbox (Aguirre-Brainard Lab)');
+        baseDir = fullfile(filesep,'Volumes','Users1','Dropbox (Aguirre-Brainard Lab)','IBIO_analysis');
  
     case 'stingray'
         % Vijay's desktop
