@@ -30,7 +30,7 @@ To learn about the parameters see documentation of performAMAAnalysis.
 The output will be saved in LuminanceConstancyAmaAnalysis/outputs in the folder Condition1.
 
 5. Visualize results of the analysis.
-    a. To visualize the first two AMA filters do 
+    a. To visualize the first two AMA filters, do 
         plotReceptiveFields(1,900)
 
     Inputs:
@@ -41,7 +41,7 @@ The output will be saved in LuminanceConstancyAmaAnalysis/outputs in the folder 
     Figure will be saved in LuminanceConstancyAmaAnalysis/results in the folder Condition 1
 
     b. To visualize the filter response and compare the estimated luminance 
-        v/s actual luminance do:
+        v/s actual luminance, do:
     
     plotEstimatesVsActual(1,900);    
 
