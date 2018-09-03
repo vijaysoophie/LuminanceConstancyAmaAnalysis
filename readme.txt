@@ -18,14 +18,10 @@ the configuration for your computer as you like. The part that you need to
 modify are in line 31-53. If not modified, the paths are chosen as per 
 Brainard lab conventions.
 
-3. Download the data and save it in the inputs folder of your newly created 
-LuminanceConstancyAmaAnalysis/inputs folder. This folder is different from the LuminanceConstancyAmaAnalysis 
-folder in the project folder that has the matlab analysis code.
-
-4. In matlab do: 
+3. In matlab do: 
 tbUseProject('LuminanceConstancyAmaAnalysis','reset','full');
 
-5. To run the AMA analysis for condition 1 do:
+4. To run the AMA analysis for condition 1 do:
 performAMAAnalysis(1,'bGPU',false);
 
 This would perform the analysis on Condition 1. 
@@ -33,7 +29,7 @@ The defaults condition will learn 6 filters in sets of 1 filter (greedy algorith
 To learn about the parameters see documentation of performAMAAnalysis.
 The output will be saved in LuminanceConstancyAmaAnalysis/outputs in the folder Condition1.
 
-6. Visualize results of the analysis.
+5. Visualize results of the analysis.
     a. To visualize the first two AMA filters do 
         plotReceptiveFields(1,900)
 
