@@ -34,8 +34,8 @@ The output will be saved in LuminanceConstancyAmaAnalysis/outputs in the folder 
         plotReceptiveFields(1,900)
 
     Inputs:
-    The first inout parameter is the condition number.
-    The second inout parameter is the number of images used in training set.
+    The first input parameter is the condition number.
+    The second input parameter is the number of images used in training set.
 
     Output:
     Figure will be saved in LuminanceConstancyAmaAnalysis/results in the folder Condition 1
