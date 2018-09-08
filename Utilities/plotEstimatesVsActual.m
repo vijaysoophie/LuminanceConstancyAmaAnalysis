@@ -39,11 +39,11 @@ for input = 1:2
         stdLinearXest = std(reshape(outputStruct.isomerization.linearTestEstimates,NImagesPerCategory,numberOfCategories));
         meanAMAXest = mean(reshape(outputStruct.isomerization.XEstimate(:,end),NImagesPerCategory,numberOfCategories));
         stdAMAXest = std(reshape(outputStruct.isomerization.XEstimate(:,end),NImagesPerCategory,numberOfCategories));
-        actualLRV = outputStruct.isomerization.AMA.X;
+        actualLRF = outputStruct.isomerization.AMA.X;
         AMA = outputStruct.isomerization.AMA;
         linearTestEstimates = outputStruct.isomerization.linearTestEstimates;
         AMATestEstimates = outputStruct.isomerization.XEstimate(:,end);
-        actualLRV2 = reshape(repmat(actualLRV,length(linearTestEstimates)/length(AMA.X),1),[],1);
+        actualLRF2 = reshape(repmat(actualLRF,length(linearTestEstimates)/length(AMA.X),1),[],1);
         
     else
         numberOfCategories = length(unique(outputStruct.isomerization.AMA.ctgInd));
@@ -52,11 +52,11 @@ for input = 1:2
         stdLinearXest = std(reshape(outputStruct.contrast.linearTestEstimates,NImagesPerCategory,numberOfCategories));
         meanAMAXest = mean(reshape(outputStruct.contrast.XEstimate(:,end),NImagesPerCategory,numberOfCategories));
         stdAMAXest = std(reshape(outputStruct.contrast.XEstimate(:,end),NImagesPerCategory,numberOfCategories));
-        actualLRV = outputStruct.contrast.AMA.X;
+        actualLRF = outputStruct.contrast.AMA.X;
         AMA = outputStruct.contrast.AMA;
         linearTestEstimates = outputStruct.contrast.linearTestEstimates;
         AMATestEstimates = outputStruct.contrast.XEstimate(:,end);
-        actualLRV2 = reshape(repmat(actualLRV,length(linearTestEstimates)/length(AMA.X),1),[],1);
+        actualLRF2 = reshape(repmat(actualLRF,length(linearTestEstimates)/length(AMA.X),1),[],1);
         
     end
     % Plot the isomerization estimates
@@ -65,21 +65,21 @@ for input = 1:2
     hold on;
     % plot the linear and svd response
     lDiagonal = plot([0.15 0.65],[0.15 0.65],'k:','linewidth',1);
-    %         lNaive = plot(actualLRV,0.4*ones(size(actualLRV)),naiveColor,'linewidth',2);
-    lLinear = plot(actualLRV,meanLinearXest,'Color',linearColor,'linewidth',2);
+    %         lNaive = plot(actualLRF,0.4*ones(size(actualLRF)),naiveColor,'linewidth',2);
+    lLinear = plot(actualLRF,meanLinearXest,'Color',linearColor,'linewidth',2);
     
     xlim([0.15 0.65]);
     ylim([0.15 0.65]);
-    xlabel('Actual target object LRV','FontSize',20);
-    ylabel('Estimated target object LRV','FontSize',20);
+    xlabel('Actual target object LRF','FontSize',20);
+    ylabel('Estimated target object LRF','FontSize',20);
     box on;
     set(gca,'FontSize',22)
     
     %% Plot the figures
-    lAMA = plot(actualLRV,meanAMAXest,'Color',AMAColor,'linewidth',2);    
+    lAMA = plot(actualLRF,meanAMAXest,'Color',AMAColor,'linewidth',2);    
     axis square;
-    plotfillederror(actualLRV, meanLinearXest-stdLinearXest,meanLinearXest+stdLinearXest,linearColor);
-    plotfillederror(actualLRV, meanAMAXest-stdAMAXest,meanAMAXest+stdAMAXest,AMAColor);    
+    plotfillederror(actualLRF, meanLinearXest-stdLinearXest,meanLinearXest+stdLinearXest,linearColor);
+    plotfillederror(actualLRF, meanAMAXest-stdAMAXest,meanAMAXest+stdAMAXest,AMAColor);    
     legend([lLinear, lAMA],...
         {'Linear Model','AMA'}, 'Location','southeast','FontSize',20);
    
@@ -99,20 +99,20 @@ for input = 1:2
         pathToResultsfile = fullfile(pathToContrastFolder,'EstimatesVsActual.pdf');
         save2pdf(pathToResultsfile,gcf,600);
     end
-    close;
+%     close;
     % Plot the filter responses
     if input == 1
-        plotFiltersJointResponsesModified(1,[1,2],actualLRV,outputStruct.isomerization.sTrain,AMA.f,AMA.ctgInd,[],[],[],[1:10]);        
+        plotFiltersJointResponsesModified(1,[1,2],actualLRF,outputStruct.isomerization.sTrain,AMA.f,AMA.ctgInd,[],[],[],[1:10]);        
         pathToResultsfile = fullfile(pathToIsomerizationFolder,'FilterResponse.pdf');
         save2pdf(pathToResultsfile,gcf,600);
     else
-        plotFiltersJointResponsesModified(1,[1,2],actualLRV,outputStruct.contrast.sTrain,AMA.f,AMA.ctgInd,[],[],[],[1:10]);
+        plotFiltersJointResponsesModified(1,[1,2],actualLRF,outputStruct.contrast.sTrain,AMA.f,AMA.ctgInd,[],[],[],[1:10]);
         pathToResultsfile = fullfile(pathToContrastFolder,'FilterResponse.pdf');
         save2pdf(pathToResultsfile,gcf,600);
     end
-	close;
-    RMSELinear = sqrt(mean((1-linearTestEstimates./actualLRV2).^2));
-    RMSEAMA = sqrt(mean((1-AMATestEstimates./actualLRV2).^2));
+% 	close;
+    RMSELinear = sqrt(mean((1-linearTestEstimates./actualLRF2).^2));
+    RMSEAMA = sqrt(mean((1-AMATestEstimates./actualLRF2).^2));
     
     if input == 1
         display(['Isomerization RMSE Linear = ',num2str(RMSELinear),' RMSE AMA = ',num2str(RMSEAMA)]);
