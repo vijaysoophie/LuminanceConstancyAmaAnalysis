@@ -29,6 +29,7 @@ function performAMAAnalysis(ConditionNumber, varargin)
 %           AMA : The AMA result struct
 %           sTrain: Training set
 %           sTest : Test set
+%           initAMAStruct : Inital AMA struct for starting filters
 %           lumTrain: Luminance level of the training set
 %           lumTest: Luminance level of the test set
 %           ctgIndTrain: Category index of the training set
@@ -50,12 +51,14 @@ parser.addParameter('nFilters', 6, @isnumeric);
 parser.addParameter('nFSet', 1, @isnumeric);
 parser.addParameter('fractionOfImagesInTrainingSet', 0.9, @isnumeric);
 parser.addParameter('bGPU', 0, @islogical);
+parser.addParameter('initAMAStruct', [], @isstruct);
 
 parser.parse(varargin{:});
 nFilters = parser.Results.nFilters;
 fractionOfImagesInTrainingSet = parser.Results.fractionOfImagesInTrainingSet;
 nFSet = parser.Results.nFSet;
 bGPU = parser.Results.bGPU;
+initAMAStruct = parser.Results.initAMAStruct;
 
 % Get the input file
 pathToFileIsomerizationFile = fullfile(getpref('LuminanceConstancyAmaAnalysis','inputBaseDir'), ...
@@ -83,9 +86,19 @@ for input = 1:2
     if input == 1
         maxData = max(data(:));
         s = isomerizationInput;
+        if isempty(initAMAStruct)
+            f0 = [];
+        else
+            f0 = initAMAStruct.outputStruct.isomerization.AMA.f;
+        end
     else
         maxData = 1;
         s = contrastInput;
+        if isempty(initAMAStruct)
+            f0 = [];
+        else
+            f0 = initAMAStruct.outputStruct.contrast.AMA.f;
+        end
     end
     
     % Divide into Train and test Set
@@ -121,7 +134,7 @@ for input = 1:2
     stpSzEta = 0.01;
     bUseGrd = 0;
     
-    [~, ~, ~, ~, ~, ~, AMA] = amaR01('SGD','MAP',nFilters,0,nFSet,[],sTrain/maxData, ...
+    [~, ~, ~, ~, ~, ~, AMA] = amaR01('SGD','MAP',nFilters,0,nFSet,f0,sTrain/maxData, ...
         ctgIndTrain, unique(lumTrain), ...
         rMax,fano,var0,rndSd,btchSz,nIterMax,stpSzMax,stpSzMin,stpSzEta,bGPU,bUseGrd);
     
