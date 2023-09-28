@@ -1,5 +1,9 @@
 Welcome to AMA analysis.
 
+Our publication "Computational luminance constancy from naturalistic images" is available at: https://doi.org/10.1167/18.13.19
+
+To cite this work: Vijay Singh, Nicolas P. Cottaris, Benjamin S. Heasly, David H. Brainard, Johannes Burge; Computational luminance constancy from naturalistic images. Journal of Vision 2018;18(13):19. https://doi.org/10.1167/18.13.19.
+
 We believe you know about Virtual world color constancy (VWCC).
 To learn about VWCC, go here:
 https://github.com/BrainardLab/VirtualWorldColorConstancy
