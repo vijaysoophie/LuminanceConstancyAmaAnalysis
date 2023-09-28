@@ -8,12 +8,10 @@ We believe you know about Virtual world color constancy (VWCC).
 To learn about VWCC, go here:
 https://github.com/BrainardLab/VirtualWorldColorConstancy
 
-We have a paper that describes VWCC. You can read it here:
-
 We also believe you know about ToolboxToolbox: 
 https://github.com/ToolboxHub/ToolboxToolbox
 
-This document describes the steps to analyze data in the paper mentioned above.
+This document describes the steps to analyze data in the publication mentioned above.
 
 1. Download the repository LuminanceConstancyAmaAnalysis and put it in your projects folder.
 
